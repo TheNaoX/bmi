@@ -1,0 +1,23 @@
+{
+  "name": "wiriku_magazine",
+  "version": "0.0.1",
+  "homepage": "https://github.com/TheNaoX/wiriku_magazine",
+  "authors": [
+    "Antonio Chavez <cavjzz@gmail.com>"
+  ],
+  "description": "Wiriku magazine software",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "bootstrap": "~3.3.1",
+    "angular": "~1.3.14",
+    "angular-resource": "~1.3.14"
+  }
+}
