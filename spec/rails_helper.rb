@@ -6,6 +6,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
+require "capybara"
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -61,5 +62,18 @@ RSpec.configure do |config|
     DatabaseCleaner.cleaning do
       example.run
     end
+  end
+
+  config.include Capybara::DSL
+  config.include Devise::TestHelpers, type: :controller
+  config.include Warden::Test::Helpers, type: :feature
+  Warden.test_mode!
+
+  Capybara.register_driver :chrome do |app|
+    Capybara::Selenium::Driver.new(app, browser: :chrome)
+  end
+
+  config.before :each, type: :feature, js: true, chrome: true do
+    Capybara.current_driver = :chrome
   end
 end

@@ -15,4 +15,9 @@
 //= require bootstrap/dist/js/bootstrap
 //= require angular/angular
 //= require angular-resource/angular-resource
-//= require_tree .
+//= require module
+//= require_tree ./body_mass_index/
+
+$(function() {
+  angular.bootstrap(document, ["BMIApp"]);
+});

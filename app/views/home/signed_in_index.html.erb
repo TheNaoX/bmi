@@ -1,0 +1,50 @@
+<div ng-controller="BodyMassIndexController as body_mass_index" ng-cloak>
+  <div class="row">
+    <div class="col-sm-12">
+      <center>
+        <form ng-submit="body_mass_index.save()" class="form-inline" id="new_body_mass_index">
+          <div class="form-group">
+            <input type="text" class="form-control" id="body_mass_index_height" placeholder="Your height (meters)" ng-model="body_mass_index.model.height" ng-required="true">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="body_mass_index_weight" placeholder="Your weight (Kilograms)" ng-model="body_mass_index.model.weight" ng-required="true">
+          </div>
+          <button type="submit" class="btn btn-primary">Calculate</button>
+        </form>
+      </center>
+
+      <br />
+      <br />
+
+      <div class="alert alert-info alert-dismissible" role="alert" ng-show="body_mass_index.message">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        {{ body_mass_index.message }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Height</th>
+            <th>Weight</th>
+            <th>Index</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="bmi in body_mass_index.collection">
+            <td>{{ bmi.created_at }}</td>
+            <td>{{ bmi.height }}</td>
+            <td>{{ bmi.weight }}</td>
+            <td>{{ bmi.index }}</td>
+            <td>{{ bmi.category }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
