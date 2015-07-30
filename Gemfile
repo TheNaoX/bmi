@@ -12,6 +12,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 
+gem 'puma'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
@@ -26,3 +28,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'database_cleaner'
 end
+
+gem 'rails_12factor', group: :production
